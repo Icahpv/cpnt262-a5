@@ -1,0 +1,21 @@
+{
+  "name": "cpnt262-a5",
+  "version": "1.0.0",
+  "description": "Deployed REST API",
+  "main": "server.js",
+  
+  "scripts": {
+    "test": "run",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Icahpv/cpnt262-a5.git"
+  },
+  "homepage": "https://github.com/Icahpv/cpnt262-a5#readme",
+  "author": "Icah Vega",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Icahpv/cpnt262-a5/issues"
+  }
+}
