@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Deployed REST API",
   "main": "server.js",
-  
   "scripts": {
     "test": "run",
     "start": "node server.js"
@@ -17,5 +16,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Icahpv/cpnt262-a5/issues"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.14"
   }
 }

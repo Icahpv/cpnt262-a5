@@ -8,7 +8,11 @@
 
 ## About the assignment
 
-
+- [x] Server setup
+  - [x] Project directory structure
+  - [x] server.js
+    - [] Express
+    - [] 
 
 ### Problems
 
