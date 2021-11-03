@@ -1,21 +1,22 @@
 /******************/
 /* Import Modules */
 /******************/
+const { application } = require("express")
 const express = require('express')
+// const { url } = require('inspector')
 const app = express()
-
-const guild = require('./guild')
+const quotes = require('./data/gallery')
 
 /*****************/
 /* Define routes */
 /*****************/
 
 // List entry route
-app.get('/api/guild', function(request, response) {
+app.get('/api/quotes', function(request, response) {
 
-  if (typeof guild !== 'undefined' && Array.isArray(guild)) {
+  if (typeof quotes !== 'undefined' && Array.isArray(quotes)) {
     // Variable is an array!
-    response.send(guild)
+    response.send(quotes)
   } else {
     response.status(404)
     response.send({error: 'File Not Found'})
@@ -24,17 +25,16 @@ app.get('/api/guild', function(request, response) {
 })
 
 // Item route
-app.get('/api/guild/:name', function(request, response) {
-  let character
-
-  if (typeof guild !== 'undefined' && Array.isArray(guild)) {
-    character = guild.find(item => request.params.name === item.name) // Use Array.find() here
+app.get('/api/quotes/:id', function(request, response) {
+  let quotesID
+  if (typeof quotes !== 'undefined' && Array.isArray(quotes)) {
+    quotesID = quotes.find(item => request.params.name === item.name) // Use Array.find() here
   } else {
-    character = null;
+    quotesID = null;
   }
   
-  if (typeof character === 'object' && character !== null) {
-    response.send(character)
+  if (typeof quotesID === 'object' && quotesID !== null) {
+    response.send(quotesID)
   } else {
     response.status(404)
     response.send({error: 'File Not Found'})
@@ -58,7 +58,7 @@ app.use(function(request, response) {
   
     // else send HTML 404
     response.status(404)
-    response.send('<h1>404: File Not Found</h1>')
+    response.sendFile(__dirname + "/public/assets/404.html")
 
   }
 });

@@ -2,7 +2,7 @@
 /* Define data array */
 /*********************/
 
-const quote = [
+const quotes = [
   {
     id: 1,
     title: 'All we have is now',
@@ -159,4 +159,4 @@ const quote = [
   }
 ];
 
-module.exports = quote
+module.exports = quotes
