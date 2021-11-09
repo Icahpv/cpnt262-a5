@@ -64,7 +64,7 @@ router.get('/quotes', (req, res) => {
 router.get('/quotes/:id', (req, res) => {
   let quotesID
   if (typeof quotes !== 'undefined' && Array.isArray(quotes)) {
-    quotesID = quotes.find(item => req.params.name === item.name) // Use Array.find() here
+    quotesID = quotes.find(item => Number(req.params.id) === Number(item.id)) // Use Array.find() here
   } else {
     quotesID = null;
   }

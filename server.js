@@ -34,8 +34,8 @@ app.use((req, res) => {
   
     // else send HTML 404
     res.status(404)
-    res.sendFile(__dirname + '/public/404.html')
-
+    res.redirect('404.html')
+    //res.sendFile(__dirname + '/public/404.html')
   }
 });
 
