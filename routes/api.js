@@ -1,10 +1,10 @@
 // Import modules
 
-const express = require('express')
-const router = express.Router()
-const mongoose = require('mongoose');
+const express = require('express') // Run Express
+const router = express.Router() // Connect to `server.js`
 
-// Connect to mongoDB & dotenv
+// Connect to MongoDB
+const mongoose = require('mongoose'); 
 
 mongoose.connect(
   process.env.MONGODB_URL,
@@ -17,10 +17,7 @@ mongoose.connect(
     console.log(err)
   });
 
-/*****************/
-/* Define Schema */
-/*****************/
-
+// Step 1: Schema
 const quoteSchema  = new mongoose.Schema({
   id: Number,
   title: String,
@@ -33,47 +30,44 @@ const quoteSchema  = new mongoose.Schema({
   creditURL: String
 })
 
-/*****************/
-/* Compile Model */
-/*****************/
-
+// Step 2: Model
 const quote = mongoose.model('quote', quoteSchema)
 
-/****************************/
-/* Include API dependencies */
-/****************************/
 
+// API Dependencies, this is where my local data is stored.
 const quotes = require('../project-root/gallery')
 
-/*****************/
-/* Define routes */
-/*****************/
+// Define routes
 
-// List entry route
-router.get('/quotes', (req, res) => {
-  if (typeof quotes !== 'undefined' && Array.isArray(quotes)) {
-    // Variable is an array!
-    res.send(quotes)
+// Entry route
+router.get('/quotes', async(req, res) => {
+  let data = await quote.find() // This finds all data in Atlas.
+
+    if (typeof data !== 'undefined' && Array.isArray(data)) { // Variable is an array!
+    res.send(data)
+
   } else {
     res.status(404)
-    res.send({error: 'File Not Found'})
+    res.send({error: 'Quotes Not Found'})
   }
 })
 
 // Item route
-router.get('/quotes/:id', (req, res) => {
-  let quotesID
-  if (typeof quotes !== 'undefined' && Array.isArray(quotes)) {
-    quotesID = quotes.find(item => Number(req.params.id) === Number(item.id)) // Use Array.find() here
+router.get('/quotes/:id', async(req, res) => {
+  let data = await quote.find({ id: req.params.id }) // Finds the id in quotes
+
+    if (typeof data !== 'undefined' && Array.isArray(data)) {
+
   } else {
-    quotesID = null;
+    data = null;
   }
   
-  if (typeof quotesID === 'object' && quotesID !== null) {
-    res.send(quotesID)
+  if (typeof data === 'object' && data !== null) {
+    res.send(data)
+
   } else {
     res.status(404)
-    res.send({error: 'File Not Found'})
+    res.send({error: 'Id Not Found'})
   }
 })
 
