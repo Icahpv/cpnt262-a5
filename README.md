@@ -22,9 +22,10 @@
   - [] Route is loaded as a local module using require('./routes/api.js')
   - [] Data is loaded as a local module using require('./data/animals.js')
   - [x] Error handling is implemented: `404: Not Found`
-   - [] Custom 404 html page 
+   - [x] Custom 404 html page 
    - [] Serve static assets from a public directory using express.static() middleware. 
-- [x] Documentation and Code Quality
+- [x] Documentation
+- [] Code Quality
 
 
 ### Problems

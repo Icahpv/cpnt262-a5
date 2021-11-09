@@ -1,40 +1,80 @@
 
+const express = require('express')
+const router = express.Router()
+const mongoose = require('mongoose');
+
+// Connect to mongoDB & dotenv
+
+mongoose.connect(
+  process.env.MONGODB_URL,
+  { useUnifiedTopology: true, useNewUrlParser: true },
+  )
+  .then(function(){
+    console.log('Connected to DB...')
+  })
+  .catch(function(err){
+    console.log(err)
+  });
+
+/*****************/
+/* Define Schema */
+/*****************/
+
+const quoteSchema  = new mongoose.Schema({
+  id: Number,
+  title: String,
+  description: String,
+  width: Number,
+  height: Number,
+  pathURL: String,
+  linkURL: String,
+  credit: String,
+  creditURL: String
+})
+
+/*****************/
+/* Compile Model */
+/*****************/
+
+const quote = mongoose.model('quote', quoteSchema)
+
+
+/****************************/
+/* Include API dependencies */
+/****************************/
+
+const quotes = require('../project-root/gallery')
+
 /*****************/
 /* Define routes */
 /*****************/
 
-const { application } = require("express")
-
-const express = require('express')
-const app = express()
-
 // List entry route
-app.get('/api/quote', function(request, response) {
-
-  if (typeof quote !== 'undefined' && Array.isArray(quote)) {
+router.get('/quotes', (req, res) => {
+  if (typeof quotes !== 'undefined' && Array.isArray(quotes)) {
     // Variable is an array!
-    response.send(quote)
+    res.send(quotes)
   } else {
-    response.status(404)
-    response.send({error: 'File Not Found'})
+    res.status(404)
+    res.send({error: 'File Not Found'})
   }
-
 })
 
 // Item route
-app.get('/api/quote/:id', function(request, response) {
-  let quotes
-
-  if (typeof quote !== 'undefined' && Array.isArray(quote)) {
-    quotes = quote.find(item => request.params.name === item.name) // Use Array.find() here
+router.get('/quotes/:id', (req, res) => {
+  let quotesID
+  if (typeof quotes !== 'undefined' && Array.isArray(quotes)) {
+    quotesID = quotes.find(item => req.params.name === item.name) // Use Array.find() here
   } else {
-    quotes = null;
+    quotesID = null;
   }
   
-  if (typeof quotes === 'object' && quotes !== null) {
-    response.send(quotes)
+  if (typeof quotesID === 'object' && quotesID !== null) {
+    res.send(quotesID)
   } else {
-    response.status(404)
-    response.send({error: 'File Not Found'})
+    res.status(404)
+    res.send({error: 'File Not Found'})
   }
 })
+
+module.exports = router
