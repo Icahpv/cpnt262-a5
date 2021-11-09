@@ -40,6 +40,7 @@
 2. I also encountered a problem with connecting my [api.js](api.js) to [server.js](server.js) which I had help from [Fesal](https://github.com/FesalBadday) and [Jessica](https://github.com/Enyorose).
 3. [Jessica ](https://github.com/Enyorose) also helped me with using this `res.redirect('404.html')` over `res.sendFile(__dirName + './public/404.html')`.
 4. I also had a problem with navigating my id which I had help from [Chris](https://github.com/13retonnian), he explained to me that `req.params.id` is returning a string, so I would have to use `Number()` in order for it to return a number. I ended up not using this because I decided to use `async & await` instead. I'm still grateful for that and will remember it more now in the future.
+5. Odd situation in Heroku App, it takes a while for my app to run, probably a couple refresh and I was told that this is because of the free account and it goes to sleep.
 
 
 ### Assets
