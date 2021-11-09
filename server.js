@@ -6,30 +6,14 @@
 const dotenv = require('dotenv').config();
 const express = require('express')
 const app = express()
-//const mongoose = require('mongoose');
-
-
-// Connect to mongoDB & dotenv
-
-/*mongoose.connect(
-  process.env.MONGODB_URL,
-  { useUnifiedTopology: true, useNewUrlParser: true },
-  )
-  .then(function(){
-    console.log('Connected to DB...')
-  })
-  .catch(function(err){
-    console.log(err)
-  }); */
-
 
 // static server
 app.use(express.static('public'))
 
-
 /*****************/
 /* Define routes */
 /*****************/
+
 const api = require('./routes/api')
 app.use('/api', api)
 

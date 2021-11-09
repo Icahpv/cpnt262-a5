@@ -1,3 +1,4 @@
+// Import modules
 
 const express = require('express')
 const router = express.Router()
@@ -38,7 +39,6 @@ const quoteSchema  = new mongoose.Schema({
 
 const quote = mongoose.model('quote', quoteSchema)
 
-
 /****************************/
 /* Include API dependencies */
 /****************************/
@@ -77,4 +77,4 @@ router.get('/quotes/:id', (req, res) => {
   }
 })
 
-module.exports = router
+module.exports = router // data from gallery.js

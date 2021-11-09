@@ -4,31 +4,17 @@
 - Class: Web Dev Fall 2021
 - Author: [Icah Vega](https://github.com/Icahpv)
 - Instructor: [Tony Grimes](https://github.com/acidtone)
-- Link: [Github Repo Link](https://github.com/Icahpv/cpnt262-a5.git)
+- Link: [Github Repo Link](https://github.com/Icahpv/cpnt262-a5.git) | [Heroku Link](https://inspire-cpnt262-a5.herokuapp.com/)
 
 ## About the assignment
 
 - [x] Server setup
-  - [x] Project directory structure
-  - [x] server.js
-    - [x] Express & Nodemon
-    - [x] Local module containing [Gallery Data](gallery.js)
-  - [] App Deployed to Heroku
-   - [] Connect your Heroku App to the Github repo of your project.
-   - [] "start": "node server.js" defined as a script in package.json
-   - [] Server PORT: If process.env.PORT isn't found, use port 3000.
-- [] Data and list endpoint
-  - [x] Migrate your frontend Javascript array to a local Node module (./data/gallery.js)
-  - [] Route is loaded as a local module using require('./routes/api.js')
-  - [] Data is loaded as a local module using require('./data/animals.js')
-  - [x] Error handling is implemented: `404: Not Found`
-   - [x] Custom 404 html page 
-   - [] Serve static assets from a public directory using express.static() middleware. 
-- [x] Documentation
+- [] List and item endpoints
+- [x] Mongoose Model
+- [x] Public documentation and custom 404 page
+- [x] Documentation 
 - [] Code Quality
 
-
-### Problems
 
 ### Assets
 
@@ -50,9 +36,9 @@
 
 ### Attributions
 
-- [Jessica Watson]()
-- [Fesal Badday]()
-- [Tony Grimes (Instructor)]()
+- [Jessica Watson](https://github.com/Enyorose) - 404.html
+- [Fesal Badday](https://github.com/FesalBadday) - Defining routes
+- [Tony Grimes (Instructor)](https://github.com/acidtone) - Most of the codes and guidance.
 
 #### License
 [MIT License](License) :scroll:
