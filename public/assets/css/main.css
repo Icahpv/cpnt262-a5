@@ -27,16 +27,3 @@ ul {
   padding: 20px;
   font-size: 15px;
 }
-
-a {
-  text-decoration: none;
-  font-size: 15px;
-  background-color: #f2f2f2;
-  padding: 3px;
-  border-radius: 5px;
-  color: cadetblue;
-}
-
-a:hover {
-  background-color: #7da3f2;
-}
