@@ -43,32 +43,22 @@ const quotes = require('../project-root/gallery')
 router.get('/quotes', async(req, res) => {
   let data = await quote.find() // This finds all data in Atlas.
 
-    if (typeof data !== 'undefined' && Array.isArray(data)) { // Variable is an array!
     res.send(data)
-
-  } else {
-    res.status(404)
-    res.send({error: 'Quotes Not Found'})
-  }
 })
 
 // Item route
 router.get('/quotes/:id', async(req, res) => {
-  let data = await quote.find({ id: req.params.id }) // Finds the id in quotes
 
-    if (typeof data !== 'undefined' && Array.isArray(data)) {
-
-  } else {
-    data = null;
-  }
-  
-  if (typeof data === 'object' && data !== null) {
+  try {
+    let data = await quote.findOne({ id: req.params.id }) // Finds the id in quo
+    if (!data) {
+      throw new Error()
+    }
     res.send(data)
-
-  } else {
-    res.status(404)
-    res.send({error: 'Id Not Found'})
+  } catch(err) {
+    res.send({error: 'Quote not found'})
   }
+
 })
 
 module.exports = router // data from gallery.js
