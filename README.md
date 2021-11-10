@@ -8,6 +8,8 @@
 
 ## About the assignment
 
+:bangbang: <span style="color:red">some *Refresh and wait for the server to load data!* text</span> :bangbang:
+
 1. [x] Server setup
   - [x] Project directory structure:
   - [x] server.js
