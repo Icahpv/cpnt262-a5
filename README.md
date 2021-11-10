@@ -8,7 +8,13 @@
 
 ## About the assignment
 
-:bangbang: <span style="color:red">some *Refresh and wait for the server to load data!* text</span> :bangbang:
+:bangbang:**IMPORTANT INSTRUCTIONS**:bangbang:
+- :small_blue_diamond: **Refresh & wait for server to load, Heroku can be sleepy.**
+- :small_blue_diamond: Home Page:`https://inspire-cpnt262-a5.herokuapp.com`
+- :small_blue_diamond: To view quotes: `https://inspire-cpnt262-a5.herokuapp.com` + `api/quotes`
+- :small_blue_diamond: To see 404 error: `https://inspire-cpnt262-a5.herokuapp.com` + `/a`
+
+---
 
 1. [x] Server setup
   - [x] Project directory structure:
