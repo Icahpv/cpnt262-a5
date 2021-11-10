@@ -12,6 +12,7 @@
 - :small_blue_diamond: **Refresh & wait for server to load, Heroku can be sleepy.**
 - :small_blue_diamond: Home Page:`https://inspire-cpnt262-a5.herokuapp.com`
 - :small_blue_diamond: To view quotes: `https://inspire-cpnt262-a5.herokuapp.com` + `api/quotes`
+- :small_blue_diamond: To choose one image: `https://inspire-cpnt262-a5.herokuapp.com` + `api/quotes` + numbers(1-14)
 - :small_blue_diamond: To see 404 error: `https://inspire-cpnt262-a5.herokuapp.com` + `/a`
 
 ---
