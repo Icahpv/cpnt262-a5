@@ -23,7 +23,7 @@
     - [x] express (see [package.json](package.json))
     - [x] mongoose (see [package.json](package.json))
     - [x] dotenv (see [package.json](package.json))
-    - [x]local module containing your routes
+    - [x] local module containing your routes
   - [x] App connects to MongoDB Atlas (see [api.js](api.js) line 7:34)
   - [x] App deployed to Heroku and MongoDB Atlas. (see Heroku Link above)
 2. [x] List and item endpoints
